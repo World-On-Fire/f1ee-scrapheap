@@ -1,8 +1,16 @@
 /*
 
    Necropolis stays southwest of Lost Hills. Scrapheap takes the Hub's
-   old square, and the Hub takes Necropolis's old square. Runs on load
-   so existing saves pick up the CITY.TXT change.
+   old square, and the Hub takes Necropolis's old square.
+
+   Runs when a game loads and again on every map enter. A save keeps the
+   old coordinates, and wm_area_set_pos does not change known/visited
+   flags, so the move has to be applied again. Scrapheap stays unknown.
+   start_state=On lets the world map reveal it when the player travels
+   to that square, the same way as Shady Sands.
+
+   Leaving a Hub map marks the Hub visited. Until that happens the circle
+   uses worldmap.msg 1004 ("Unknown") instead of the Hub name.
 
 */
 
@@ -10,15 +18,29 @@
 #include "command.h"
 
 procedure start;
+procedure map_enter_p_proc;
+procedure map_exit_p_proc;
+procedure place_towns;
+
+procedure place_towns begin
+   wm_area_set_pos(AREA_NECROPOLIS, 473, 622);
+   wm_area_set_pos(AREA_HUB, 1123, 672);
+   wm_area_set_pos(AREA_SCRAPHEAP, 873, 722);
+end
 
 procedure start begin
+   set_global_script_type(0);
    if (game_loaded) then begin
-      set_global_script_type(0);
+      call place_towns;
+   end
+end
 
-      wm_area_set_pos(AREA_NECROPOLIS, 473, 622);
-      wm_area_set_pos(AREA_HUB, 1123, 672);
-      wm_area_set_pos(AREA_SCRAPHEAP, 873, 722);
-      // Leave Scrapheap unknown. start_state=On lets the engine reveal it
-      // when the player travels near it, the same way as other towns.
+procedure map_enter_p_proc begin
+   call place_towns;
+end
+
+procedure map_exit_p_proc begin
+   if (CUR_MAP_HUBENT or CUR_MAP_HUBDWNTN or CUR_MAP_HUBHEIGT or CUR_MAP_HUBOLDTN or CUR_MAP_HUBWATER) then begin
+      mark_area_known(MARK_TYPE_TOWN, AREA_HUB, MARK_STATE_VISITED);
    end
 end
