@@ -143,7 +143,7 @@ python build_fission.py <folder with Et Tu's 99demo .ssl files plus JunkDemo.ssl
 ## Play-test checklist
 
 - [x] FISSION starts with no "collision" pop-ups, and `data\lists\area_list.txt` shows SCRAPHEAP in slot 3967 (done, step 23)
-- [ ] Scrapheap is at 1123,672 on the world map and Necropolis at 473,622, on a new game and on an old save
+- [ ] Scrapheap is at 873,722, the Hub at 1123,672, and Necropolis at 473,622, on a new game and on an old save. Scrapheap stays unknown until you travel to it
 - [ ] Entering Scrapheap shows the greeting once and puts "Stop the gang war" in the Pip-Boy
 - [ ] The gangs do not start fighting just because you walked in
 - [ ] Walking onto an exit grid at the edge of town returns you to the world map
