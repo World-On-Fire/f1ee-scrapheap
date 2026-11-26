@@ -1,0 +1,88 @@
+/*
+
+   Scrapheap - Fo1 demo location
+
+*/
+
+#include "define.h"
+#include "scrapheap_fission.h"
+#include "maps/junkdemo.h"
+
+#define NAME                    SCRIPT_JUNKDEMO
+
+#include "command.h"
+#include "updatmap.h"
+#include "sfall/main.h"
+#include "sfall/sfall.rotators.h"
+
+procedure start;
+procedure map_enter_p_proc;
+procedure map_update_p_proc;
+procedure map_exit_p_proc;
+procedure timed_event_p_proc;
+
+#define EVENT_END_GENERATOR   (1)
+#define EVENT_END_GANGS       (2)
+
+#define ENDING_TIMER    (10) // Was 30
+
+export variable Phil_Approaches;
+export variable Growling;
+export variable Smartass;
+export variable Smartass2;
+export variable Skippy_Talk;
+export variable Crypt_Pointer;
+export variable Fool_Pointer;
+export variable Phrax_Pointer;
+export variable Rock_Pointer;
+export variable Fool_Taunt;
+export variable Crypt_Taunt;
+
+export variable Fridge_ptr;
+
+variable Timer;
+
+procedure start begin
+end
+
+procedure map_enter_p_proc begin
+   Lighting;
+   override_map_start(106, 136, 0, 5);
+   // Painted grids still point at the Necropolis hotel. -2 is the world map.
+   set_exit_grids(0, -2, 0, 20100, 0);
+
+   if (map_first_run) then begin
+      display_msg("Amid endless sands, you come across an oasis of rust and scrap. The harsh glares from the gate guards hardly invite you to look any closer.");
+      set_global_var(GVAR_SCRAPHEAP_PIPBOY_GANG_WAR, 1); // FISSION: Pip-Boy quest on
+   end
+end
+
+procedure map_update_p_proc begin
+   Lighting;
+   if not(fo1_demo_completed) then begin
+      if (map_var(MVAR_Broken_Gen)) then begin
+         flush_add_timer_event(self_obj, game_ticks(ENDING_TIMER), EVENT_END_GENERATOR);
+      end
+      else if ((map_var(MVAR_Fool_Counter) <= 1) and (map_var(MVAR_Crypt_Counter) <= 1)) then begin
+         flush_add_timer_event(self_obj, game_ticks(ENDING_TIMER), EVENT_END_GANGS);
+      end
+   end
+end
+
+procedure map_exit_p_proc begin
+end
+
+procedure timed_event_p_proc begin
+   if (fixed_param == EVENT_END_GENERATOR and Timer == 0) then begin
+      Timer := 1;
+      float_msg(dude_obj, mstr(400), FLOAT_MSG_WARNING);
+      set_fo1_demo_completed;
+      set_global_var(GVAR_SCRAPHEAP_PIPBOY_GANG_WAR, 2); // FISSION: Pip-Boy quest done
+   end
+   else if (fixed_param == EVENT_END_GANGS and Timer == 0) then begin
+      Timer := 1;
+      float_msg(dude_obj, mstr(402), FLOAT_MSG_WARNING);
+      set_fo1_demo_completed;
+      set_global_var(GVAR_SCRAPHEAP_PIPBOY_GANG_WAR, 2); // FISSION: Pip-Boy quest done
+   end
+end

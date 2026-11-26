@@ -1,0 +1,29 @@
+# Scrapheap - global variables (FISSION gives each one a fixed number, listed at the bottom)
+QUEST_GANG_WAR = 0
+GANG_WAR_STATE = 0
+QUEST_FIX_POWER = 0
+TOWN_REP_SCRAPHEAP = 0
+DOG_HIRED = 0
+GANG_1_FLAG = 0
+FOOLS_SCOUTED = 0
+CRYPTS_SCOUTED = 0
+ETTU_OPTION_OFF = 0
+COMPUTER_FIXED = 0
+COMPUTER_GAVE_XP = 0
+GENERATOR_SCIENCE_CHECK = 0
+GENERATOR_REPAIR_CHECK = 0
+
+# Numbers, for reference (data/lists/gvars_list.txt shows the same):
+# 7789  QUEST_GANG_WAR           Pip-Boy quest: 0 hidden, 1 active, 2 completed
+# 4796  GANG_WAR_STATE           gang scripts' state flag: 0 quiet, 1 gangs gathering, 2 gangs leaving, 69 demo finished
+# 5754  QUEST_FIX_POWER          Pip-Boy quest: 0 inactive, 1 active, 2 completed
+# 6810  TOWN_REP_SCRAPHEAP       town reputation
+# 7387  DOG_HIRED                the dog follows you
+# 4444  GANG_1_FLAG              set by a citizen's line
+# 5263  FOOLS_SCOUTED            player walked into the Fools' area
+# 4785  CRYPTS_SCOUTED           player walked into the Crypts' area
+# 5706  ETTU_OPTION_OFF          stands in for Et Tu option switches; always 0
+# 5556  COMPUTER_FIXED           computer: was local variable 4
+# 5134  COMPUTER_GAVE_XP         computer: was local variable 5
+# 5651  GENERATOR_SCIENCE_CHECK  generator: was local variable 0
+# 6076  GENERATOR_REPAIR_CHECK   generator: was local variable 1

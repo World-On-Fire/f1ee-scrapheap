@@ -1,0 +1,26 @@
+ // Map vars for JUNKDEMO Map
+
+ // Comments
+
+//MAP_GLOBAL_VARS:
+MAP_GLOBAL_VARS:
+//GLOBAL                                        NUMBER
+MVAR_Is_Fool                    :=0;       		// (0)
+MVAR_Is_Crypt                   :=0;       		// (1)
+MVAR_Broken_Gen                 :=0;       		// (2)
+MVAR_Use_Generator              :=0;       		// (3)
+MVAR_Dog_Is_Angry               :=1;       		// (4)       //must start at 1
+MVAR_Know_Fools                 :=0;       		// (5)
+MVAR_Know_Crypts                :=0;       		// (6)
+MVAR_Know_Power                 :=0;       		// (7)
+MVAR_Fool_Counter               :=4;       		// (8)     //must start at 4
+MVAR_Crypt_Counter              :=8;       		// (9)     //must start at 8
+MVAR_Rock_Invite				     :=0;			   // (10)
+MVAR_Use_Fridge					  :=0;			   // (11)
+MVAR_Slot1                      :=0;            // (12)
+MVAR_Slot2                      :=0;            // (13)
+MVAR_SlotArmor                  :=0;            // (14)
+MVAR_Slot1_flags                :=0;            // (15)
+MVAR_Slot2_flags                :=0;            // (16)
+MVAR_SlotArmor_flags            :=0;            // (17)
+MVAR_CurHP                      :=0;            // (18)

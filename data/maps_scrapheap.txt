@@ -1,0 +1,11 @@
+; JUNKDEMO.MAP is Et Tu's copy of the demo map (exit grids added). It ships in this
+; mod under maps\ (and again under data\MAPS\, see NOTES.md) with JUNKDEMO.GAM and .edg.
+
+[Map 0]
+lookup_name=SCRAPHEAP
+map_name=JUNKDEMO
+music=12junktn
+saved=Yes
+dead_bodies_age=Yes
+can_rest_here=Yes,Yes,Yes
+automap=yes

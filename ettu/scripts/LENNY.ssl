@@ -1,0 +1,275 @@
+/*
+
+   Scrapheap - Lenny, at the brahmin stable
+
+*/
+
+/* Include Files */
+#include "define.h"
+#include "area/scrapheap.h"
+#include "maps/junkdemo.h"
+
+#define NAME                    SCRIPT_LENNY
+#define TOWN_REP_VAR            (GVAR_TOWN_REP_SCRAPHEAP)
+
+#include "command.h"
+#include "modreact.h"
+
+/* Standard Script Procedures */
+procedure start;
+procedure talk_p_proc;
+
+procedure Lenny00;
+procedure Lenny01;
+procedure Lenny02;
+procedure Lenny03;
+procedure Lenny04;
+procedure Lenny04a;
+procedure Lenny04b;
+procedure Lenny05;
+procedure Lenny06;
+procedure Lenny06a;
+procedure Lenny07;
+procedure Lenny08;
+procedure Lenny09;
+procedure Lenny10;
+procedure Lenny11;
+procedure Lenny12;
+procedure Lenny13;
+procedure Lenny14;
+procedure Lenny15;
+procedure Lenny16;
+procedure Lenny17;
+procedure Lenny18;
+procedure Lenny19;
+procedure LennyEnd;
+procedure LennyCombat;
+
+#define LVAR_Known      (4)
+
+variable tmp_hostile;
+variable Only_Once := 1;
+
+variable tmp_reaction_level := 2;
+
+procedure start begin
+   if Only_Once then begin
+      Only_Once := 0;
+      set_self_team(TEAM_DEMO_PEASANT);
+   end
+end
+
+procedure look_at_p_proc begin
+   script_overrides;
+   if (local_var(LVAR_Known)) then begin
+      display_msg(mstr(100));
+   end
+   else begin
+      display_msg(mstr(101));
+   end
+end
+
+procedure description_p_proc begin
+   script_overrides;
+   if (local_var(LVAR_Known)) then begin
+      display_msg(mstr(100));
+   end
+   else begin
+      display_msg(mstr(101));
+   end
+end
+
+procedure pickup_p_proc begin
+   attack(dude_obj);
+end
+
+procedure critter_p_proc begin
+   if (tmp_hostile) then begin
+      tmp_hostile := 0;
+      attack(dude_obj);
+   end
+end
+
+procedure talk_p_proc begin
+   dude_look_at_self;
+   start_gdialog(406, self_obj, 4, -1, -1);
+   gsay_start;
+   if (tmp_reaction_level < 2) then begin
+      call Lenny14;
+   end
+   else begin
+      if (local_var(LVAR_Known)) then begin
+         call Lenny09;
+      end
+      else begin
+         call Lenny01;
+      end
+   end
+   gsay_end;
+   end_dialogue;
+end
+
+procedure Lenny00 begin
+   set_local_var(LVAR_Known, 1);
+   Reply(104);
+   NOption(103, LennyCombat, 1);
+end
+
+procedure Lenny01 begin
+   Reply(105);
+   NOption(106, Lenny15, 4);
+   NOption(107, Lenny03, 4);
+   NOption(108, Lenny02, 4);
+end
+
+procedure Lenny02 begin
+   Reply(109);
+   NOption(107, Lenny03, 4);
+end
+
+procedure Lenny03 begin
+   Reply(110);
+   NOption(111, Lenny08, 4);
+   NOption(112, Lenny04, 4);
+end
+
+procedure Lenny04 begin
+   Reply(113);
+   NOption(114, Lenny04a, 4);
+   NOption(115, Lenny04b, 4);
+   NOption(116, Lenny06, 4);
+end
+
+procedure Lenny04a begin
+   if (dude_skill_success(SKILL_SPEECH, 0)) then begin
+      call Lenny05;
+   end
+   else begin
+      call Lenny06;
+   end
+end
+
+procedure Lenny04b begin
+   if (dude_skill_success(SKILL_SPEECH, 20)) then begin
+      call Lenny07;
+   end
+   else begin
+      call Lenny06;
+   end
+end
+
+procedure Lenny05 begin
+   Reply(117);
+   NOption(118, LennyEnd, 1);
+end
+
+procedure Lenny06 begin
+   Reply(119);
+   NOption(120, Lenny06a, 4);
+end
+
+procedure Lenny06a begin
+   tmp_reaction_level := 1;
+   LevelToReact
+end
+
+procedure Lenny07 begin
+   Reply(121);
+   NOption(122, LennyEnd, 4);
+end
+
+procedure Lenny08 begin
+   Reply(123);
+   NOption(122, LennyEnd, 4);
+end
+
+procedure Lenny09 begin
+   Reply(124);
+   if KNOWS_FOOLS then
+      NOption(125, Lenny10, 4);
+   if KNOWS_CRYPTS then
+      NOption(126, Lenny11, 4);
+   if KNOWS_POWER then
+      NOption(127, Lenny12, 4);
+   NOption(128, LennyEnd, 4);
+end
+
+procedure Lenny10 begin
+   Reply(129);
+   NOption(130, LennyEnd, 4);
+   if KNOWS_CRYPTS then
+      NOption(126, Lenny11, 4);
+   if KNOWS_POWER then
+      NOption(127, Lenny12, 4);
+end
+
+procedure Lenny11 begin
+   Reply(131);
+   NOption(130, LennyEnd, 4);
+   NOption(132, Lenny13, 4);
+   if KNOWS_FOOLS then
+      NOption(125, Lenny10, 4);
+   if KNOWS_POWER then
+      NOption(127, Lenny12, 4);
+end
+
+procedure Lenny12 begin
+   Reply(133);
+   NOption(130, LennyEnd, 4);
+   if KNOWS_FOOLS then
+      NOption(125, Lenny10, 4);
+   if KNOWS_CRYPTS then
+      NOption(126, Lenny11, 4);
+end
+
+procedure Lenny13 begin
+   Reply(134);
+   NOption(130, LennyEnd, 4);
+   if KNOWS_FOOLS then
+      NOption(125, Lenny10, 4);
+   if KNOWS_CRYPTS then
+      NOption(126, Lenny11, 4);
+   if KNOWS_POWER then
+      NOption(127, Lenny12, 4);
+end
+
+procedure Lenny14 begin
+   Reply(135);
+   NOption(103, LennyEnd, 1);
+end
+
+procedure Lenny15 begin
+   Reply(136);
+   NOption(137, Lenny16, 4);
+   NOption(138, Lenny17, 4);
+end
+
+procedure Lenny16 begin
+   Reply(139);
+   NOption(140, Lenny03, 4);
+   NOption(141, Lenny18, 4);
+end
+
+procedure Lenny17 begin
+   Reply(142);
+   NOption(130, LennyEnd, 4);
+   NOption(143, Lenny03, 4);
+end
+
+procedure Lenny18 begin
+   Reply(144);
+   NOption(145, Lenny03, 4);
+   NOption(146, Lenny19, 4);
+end
+
+procedure Lenny19 begin
+   Reply(147);
+   NOption(103, LennyCombat, 4);
+end
+
+procedure LennyEnd begin
+end
+
+procedure LennyCombat begin
+   tmp_hostile := 1;
+end

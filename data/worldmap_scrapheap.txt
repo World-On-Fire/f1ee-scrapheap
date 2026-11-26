@@ -1,0 +1,82 @@
+; Necropolis is at world position 473,622.
+; That point is tile 9, subtile 2_0 (50px squares, 4 tiles across).
+; The town square has no encounters. North, east, and south are Desert Necrop (table 9).
+; North crosses into tile 5. Fill and encounter rate stay as they were.
+
+[Tile 5]
+2_5=Desert,No_Fill,Common,Common,Common,9
+
+; Desert around the new town uses table 9 (D: Necrop). Rate and fill stay Rare / No_Fill.
+[Tile 9]
+0_0=Desert,No_Fill,Rare,Rare,Rare,9
+1_0=Desert,No_Fill,Rare,Rare,Rare,9
+1_1=Desert,No_Fill,Rare,Rare,Rare,9
+1_2=Desert,No_Fill,Rare,Rare,Rare,9
+2_0=City,No_Fill,None,None,None,0
+2_1=Desert,No_Fill,Uncommon,Uncommon,Uncommon,9
+2_2=Desert,No_Fill,Rare,Rare,Rare,9
+3_0=Desert,No_Fill,Rare,Rare,Rare,9
+3_1=Desert,No_Fill,Rare,Rare,Rare,9
+3_2=Desert,No_Fill,Rare,Rare,Rare,9
+4_0=Desert,No_Fill,Rare,Rare,Rare,9
+4_1=Desert,No_Fill,Rare,Rare,Rare,9
+4_2=Desert,No_Fill,Rare,Rare,Rare,9
+5_0=Desert,No_Fill,Rare,Rare,Rare,9
+5_1=Desert,No_Fill,Rare,Rare,Rare,9
+5_2=Desert,No_Fill,Rare,Rare,Rare,9
+6_0=Desert,No_Fill,Rare,Rare,Rare,9
+6_1=Desert,No_Fill,Rare,Rare,Rare,9
+6_2=Desert,No_Fill,Rare,Rare,Rare,9
+
+; Old Necropolis patch, now the Hub's square (1123,672). Those squares were Desert
+; North (table 0). They are Hub encounters (table 8). Terrain, fill, and rate stay.
+; The four City squares stay Desert so they use the Hub table, not the city map.
+; The Hub's old zone (tile 10, table 8) becomes Desert North (table 0). The town
+; square 3_2 keeps None. Squares that were already Desert North or Boneyard stay.
+; The Hub is at tile 11, subtile 1_1. North, east, and south of that square are City.
+; Fill, rate, and table 8 stay.
+
+[Tile 7]
+0_5=Desert,No_Fill,Uncommon,Uncommon,Uncommon,8
+1_5=Desert,No_Fill,Uncommon,Uncommon,Uncommon,8
+2_5=Desert,No_Fill,Uncommon,Uncommon,Uncommon,8
+3_5=Desert,No_Fill,Uncommon,Uncommon,Uncommon,8
+
+[Tile 10]
+2_1=Desert,No_Fill,Common,Common,Common,0
+2_2=Desert,No_Fill,Common,Common,Common,0
+2_3=Desert,No_Fill,Common,Common,Common,0
+3_0=Desert,No_Fill,Common,Common,Common,0
+3_1=Desert,No_Fill,Common,Common,Common,0
+3_2=Desert,No_Fill,None,None,None,0
+3_3=Desert,No_Fill,Common,Common,Common,0
+4_0=Desert,No_Fill,Common,Common,Common,0
+4_1=Desert,No_Fill,Common,Common,Common,0
+4_2=Desert,No_Fill,Common,Common,Common,0
+4_3=Desert,No_Fill,Common,Common,Common,0
+5_3=Desert,No_Fill,Common,Common,Common,0
+6_0=Desert,No_Fill,Uncommon,Uncommon,Uncommon,8
+6_1=Desert,No_Fill,Common,Common,Common,8
+6_2=Desert,No_Fill,Common,Common,Common,8
+6_3=Desert,No_Fill,Common,Common,Common,0
+
+[Tile 11]
+0_0=Desert,No_Fill,Common,Common,Common,8
+0_1=Desert,No_Fill,Common,Common,Common,8
+0_2=Desert,No_Fill,Uncommon,Uncommon,Uncommon,8
+0_3=Desert,No_Fill,Uncommon,Uncommon,Uncommon,8
+1_0=City,No_Fill,Uncommon,Uncommon,Uncommon,8
+1_1=Desert,No_Fill,Common,Common,Common,8
+1_2=City,No_Fill,Uncommon,Uncommon,Uncommon,8
+1_3=Desert,No_Fill,Uncommon,Uncommon,Uncommon,8
+1_4=Desert,No_Fill,Uncommon,Uncommon,Uncommon,8
+2_0=Desert,No_Fill,Uncommon,Uncommon,Uncommon,8
+2_1=City,No_Fill,Uncommon,Uncommon,Uncommon,8
+2_2=Desert,No_Fill,Uncommon,Uncommon,Uncommon,8
+2_3=Desert,No_Fill,Uncommon,Uncommon,Uncommon,8
+2_4=Desert,No_Fill,Uncommon,Uncommon,Uncommon,8
+3_0=Desert,No_Fill,Uncommon,Uncommon,Uncommon,8
+3_1=Desert,No_Fill,Uncommon,Uncommon,Uncommon,8
+3_2=Desert,No_Fill,Uncommon,Uncommon,Uncommon,8
+3_3=Desert,No_Fill,Uncommon,Uncommon,Uncommon,8
+3_4=Desert,No_Fill,Uncommon,Uncommon,Uncommon,8

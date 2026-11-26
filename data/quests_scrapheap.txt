@@ -1,0 +1,5 @@
+# location, description (ignored), gvar, displayThreshold, completedThreshold
+# Location is the SCRAPHEAP slot from data/lists/area_list.txt.
+# GVAR indexes are from data/lists/gvars_list.txt.
+3967, 0, 7789, 1, 2
+3967, 1, 5754, 1, 2

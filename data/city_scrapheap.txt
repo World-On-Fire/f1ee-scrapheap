@@ -1,0 +1,45 @@
+; Necropolis is moved southwest of the Brotherhood (Lost Hills).
+; Scrapheap and the Hub trade squares. Scrapheap is on the Hub's old square.
+; The Hub is on Necropolis's old square.
+; Necropolis keeps its town-map picture. Scrapheap's town map is off for now.
+; Scrapheap's right-panel nameplate is art/intrface/scrapheap.png.
+
+[Area 0]
+area_name=05_Necropolis
+world_pos=473,622
+start_state=On
+size=Large
+townmap_art_idx=161
+townmap_label_art_idx=137
+label_art_y=90
+entrance_0=On,410,271,HOTEL,-1,-1,0
+entrance_1=Off,251,230,HALLDED,-1,-1,0
+entrance_2=Off,91,213,WATRSHD,-1,-1,0
+saved=yes
+
+[Area 1]
+area_name=SCRAPHEAP
+world_pos=873,722
+start_state=On
+size=Large
+townmap_art_idx=-1
+townmap_label_art_idx=5025
+label_art_y=0
+entrance_0=On,410,271,SCRAPHEAP,-1,-1,0
+saved=yes
+
+[Area 2]
+area_name=06_The Hub
+world_pos=1123,672
+start_state=On
+size=Large
+townmap_art_idx=162
+townmap_label_art_idx=137
+label_art_y=108
+entrance_0=On,250,84,HUBENT,-1,-1,0
+entrance_1=Off,217,178,HUBDWNTN,-1,-1,0
+entrance_2=Off,140,144,HUBHEIGT,-1,-1,0
+entrance_3=Off,318,143,HUBOLDTN,-1,-1,0
+entrance_4=Off,284,244,HUBWATER,-1,-1,0
+entrance_5=Off,137,222,DETHCLAW,-1,-1,0
+saved=yes

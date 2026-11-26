@@ -1,0 +1,24 @@
+/*
+
+   Necropolis stays southwest of Lost Hills. Scrapheap takes the Hub's
+   old square, and the Hub takes Necropolis's old square. Runs on load
+   so existing saves pick up the CITY.TXT change.
+
+*/
+
+#include "define.h"
+#include "command.h"
+
+procedure start;
+
+procedure start begin
+   if (game_loaded) then begin
+      set_global_script_type(0);
+
+      wm_area_set_pos(AREA_NECROPOLIS, 473, 622);
+      wm_area_set_pos(AREA_HUB, 1123, 672);
+      wm_area_set_pos(AREA_SCRAPHEAP, 873, 722);
+      // Leave Scrapheap unknown. start_state=On lets the engine reveal it
+      // when the player travels near it, the same way as other towns.
+   end
+end
