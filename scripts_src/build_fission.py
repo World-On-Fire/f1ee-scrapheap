@@ -145,13 +145,16 @@ gl = """/*
 
    Scrapheap (FISSION build) - global script.
 
-   Puts Necropolis and Scrapheap on their world map squares again every time a
-   game loads and every time a map is entered, so saves made before the mod was
-   installed pick the move up too. New games already get both positions from
-   data/city_scrapheap.txt.
+   Necropolis stays southwest of Lost Hills. Scrapheap takes the Hub's
+   old square, and the Hub takes Necropolis's old square. Runs when a
+   game loads and on every map enter, because a save keeps the old
+   coordinates. wm_area_set_pos does not change known/visited flags.
+   Scrapheap stays unknown. start_state=On in city_scrapheap.txt lets
+   the world map reveal it when the player travels to that square, the
+   same way as Shady Sands.
 
    The numbers are FISSION area slots (data/lists/area_list.txt):
-   5 = 05_Necropolis, 3967 = SCRAPHEAP.
+   5 = 05_Necropolis, 6 = 06_The Hub, 3967 = SCRAPHEAP.
 
 */
 
@@ -161,12 +164,13 @@ procedure place_towns;
 
 procedure place_towns begin
    wm_area_set_pos(5, 473, 622);
-   wm_area_set_pos(3967, 1123, 672);
+   wm_area_set_pos(6, 1123, 672);
+   wm_area_set_pos(3967, 873, 722);
 end
 
 procedure start begin
+   set_global_script_type(0);
    if (game_loaded) then begin
-      set_global_script_type(0);
       call place_towns;
    end
 end
