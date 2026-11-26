@@ -16,6 +16,10 @@ start the game twice. FISSION switches new mods on by itself.
 mod_scrapheap.dat\ettu
 ```
 
+In the game's `ddraw.ini` (the one next to the Et Tu executable, not the copy
+inside this mod), set `WorldMapSlots=13`. sfall reads that file only. 13 fits
+the existing location-tab art.
+
 Keep the folder name exactly as it is. FISSION only loads folders named `mod_<name>.dat`.
 
 ## Status
