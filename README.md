@@ -22,12 +22,6 @@ the existing location-tab art.
 
 Keep the folder name exactly as it is. FISSION only loads folders named `mod_<name>.dat`.
 
-## Status
-
-Built and checked against the game files. Partially play-tested in both engines.
-
-`NOTES.md` explains how the folder works, every change that was made, and what to test. Both FISSION and Et Tu versions are at parity with one another.
-
 ## Credits
 
 - Uncle Phosgene (NMA): Inspired concept

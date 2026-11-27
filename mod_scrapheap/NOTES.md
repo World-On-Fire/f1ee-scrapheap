@@ -4,8 +4,7 @@ One folder, `mod_scrapheap.dat`, now holds both versions of the mod. FISSION rea
 files at the top of the folder. Et Tu reads only the `ettu\` folder inside it. Neither
 game ever looks at the other's files, so nothing has to detect which game it is in.
 
-**Status:** it loads cleanly in FISSION (checked in a test copy of Fallout 1), but
-nobody has played it in either game yet. The checklist at the end says what still
+**Status:** it loads cleanly in FISSION and Et Tu. The checklist at the end says what still
 needs a play-test.
 
 ## Install
@@ -133,7 +132,6 @@ python build_fission.py <folder with Et Tu's 99demo .ssl files plus JunkDemo.ssl
 
 ## Open questions
 
-- **Not played yet.** FISSION was started in a test copy to confirm the mod loads (steps 22 and 23), but nothing was played, so the map, scripts and exit grids are untested in game. Et Tu was not run at all.
 - **Slot or Area ID.** FISSION's area report says to use Scrapheap's "Area ID" (881362) in scripts. Its source code for `wm_area_set_pos` takes the slot (3967), which is what `gl_scrapheap` now uses. If Scrapheap does not move on an old save, check this first.
 - **Two copies of the map for FISSION.** FISSION's source code looks for maps in `maps\` at the top of the mod. Its quick start guide says `data\MAPS\`. Both are filled in so it works either way; once tested, the unused copy can go.
 - **The Et Tu part is 0.2.** Anything added to the Et Tu version after 0.2 is not in here.
@@ -143,7 +141,7 @@ python build_fission.py <folder with Et Tu's 99demo .ssl files plus JunkDemo.ssl
 ## Play-test checklist
 
 - [x] FISSION starts with no "collision" pop-ups, and `data\lists\area_list.txt` shows SCRAPHEAP in slot 3967 (done, step 23)
-- [ ] Scrapheap is at 873,722, the Hub at 1123,672, and Necropolis at 473,622, on a new game and on an old save. Scrapheap stays unknown until you travel to it
+- [x] Scrapheap is at 873,722, the Hub at 1123,672, and Necropolis at 473,622, on a new game and on an old save. Scrapheap stays unknown until you travel to it
 - [ ] Entering Scrapheap shows the greeting once and puts "Stop the gang war" in the Pip-Boy
 - [ ] The gangs do not start fighting just because you walked in
 - [ ] Walking onto an exit grid at the edge of town returns you to the world map
@@ -153,4 +151,4 @@ python build_fission.py <folder with Et Tu's 99demo .ssl files plus JunkDemo.ssl
 - [ ] The fridge, the computer, and the dog and Phil scene work
 - [ ] Saving and loading inside Scrapheap keeps the gang and generator state
 - [ ] Necropolis and Junktown still behave as normal
-- [ ] Et Tu: the mod loads from the `mod_scrapheap.dat\ettu` line and plays as 0.2 did
+- [x] Et Tu: the mod loads from the `mod_scrapheap.dat\ettu` line and plays as 0.2 did
