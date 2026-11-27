@@ -3,5 +3,5 @@
 {1}{}{Scrapheap}
 {2}{}{Scrapheap}
 
-# Area name. FISSION reads this from local number 1500.
-{1500}{}{Scrapheap}
+# Area name. Local index 1: city_scrapheap.txt [Area 0] is the Necropolis move.
+{1501}{}{Scrapheap}
